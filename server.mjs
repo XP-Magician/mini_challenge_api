@@ -11,6 +11,7 @@ server.set("views", "views");
 server.set("view engine", "ejs");
 
 // Main server instance config
+server.use(Express.static("public"));
 server.use("/", ViewsRouter);
 
 // Server init
