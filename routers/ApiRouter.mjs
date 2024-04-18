@@ -1,11 +1,11 @@
 //Dependencies
 import Express from "express";
-import CONSTANTS from "../config/constants.mjs";
+import { validateBody, authUser } from "../middlewares/MiddleLogin.mjs";
 const router = Express.Router();
 
 // Instructions API
-router.post("/login", (req, res) => {
-  // Middlewares and JWT
+router.post("/login", validateBody, authUser, (req, res) => {
+  return res.json(req.x_result);
 });
 
 export default router;
