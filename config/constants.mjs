@@ -2,6 +2,8 @@ const CONFIG = {
   URI: "http://localhost:54321/",
   USERNAME: "foris_challenge",
   PASSWORD: "ForisChallenge",
+  NUMBER_OF_GROUPS: 168,
+  CORRECT_ANSWER: 28,
 };
 
 export const TEXT = {
