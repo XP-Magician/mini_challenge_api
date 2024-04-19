@@ -16,7 +16,12 @@ server.set("views", `${__dirname}/views`);
 server.set("view engine", "ejs");
 
 // Main server instance config
-server.use(cors());
+server.use(
+  cors({
+    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: "*",
+  })
+);
 server.use(Express.static(`${__dirname}/public`));
 server.use(Express.json());
 server.use("/", ViewsRouter);
