@@ -15,7 +15,7 @@ server.set("views", `${__dirname}/views`);
 server.set("view engine", "ejs");
 
 // Main server instance config
-server.use(Express.static("./public"));
+server.use(Express.static(`${__dirname}/public`));
 server.use(Express.json());
 server.use("/", ViewsRouter);
 server.use("/", ApiRouter);
