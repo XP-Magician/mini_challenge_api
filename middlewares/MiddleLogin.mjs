@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import CONFIG  from path.join('..','config','constants.mjs')
-import { TEXT } from  path.join('..','config','constants.mjs')
+import CONFIG from "../config/constants.mjs";
+import { TEXT } from "../config/constants.mjs";
 
 export const validateBody = (req, res, next) => {
   const { username, password } = req.body;
