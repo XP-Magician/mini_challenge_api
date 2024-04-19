@@ -1,5 +1,5 @@
 const CONFIG = {
-  URI: "http://localhost:54321/",
+  URI: process.env.PRODUCTION_URI ?? "http://localhost:54321/",
   USERNAME: "foris_challenge",
   PASSWORD: "ForisChallenge",
   NUMBER_OF_GROUPS: 168,
