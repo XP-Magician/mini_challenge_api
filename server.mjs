@@ -26,11 +26,5 @@ server.use((error, request, response) => {
   return request.status(400).json({ error: "Method not allowed." });
 });
 
-// Server init
-server.listen(PORT, () => {
-  console.log(
-    `SERVER LISTENING AT : http://${
-      process.env.PRODUCTION_URI ?? "localhost"
-    }:${PORT}`
-  );
-});
+// Server export
+export default server;
