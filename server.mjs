@@ -8,11 +8,11 @@ const server = Express();
 const PORT = process.env.PORT ?? 54321;
 
 // Template engine
-server.set("views", "views");
+server.set("views", "./views");
 server.set("view engine", "ejs");
 
 // Main server instance config
-server.use(Express.static("public"));
+server.use(Express.static("./public"));
 server.use(Express.json());
 server.use("/", ViewsRouter);
 server.use("/", ApiRouter);
