@@ -4,6 +4,7 @@ import ViewsRouter from "./routers/ViewsRouter.mjs";
 import ApiRouter from "./routers/ApiRouter.mjs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import cors from "cors";
 
 // Constants
 const server = Express();
@@ -15,6 +16,7 @@ server.set("views", `${__dirname}/views`);
 server.set("view engine", "ejs");
 
 // Main server instance config
+server.use(cors());
 server.use(Express.static(`${__dirname}/public`));
 server.use(Express.json());
 server.use("/", ViewsRouter);
