@@ -34,7 +34,7 @@ export const authUser = (req, res, next) => {
 };
 
 export const checkAuth = (req, res, next) => {
-  const authorizationHeader = req.get("authorization");
+  const authorizationHeader = req.get("Authorization");
   if (
     !authorizationHeader ||
     !authorizationHeader.toLowerCase().startsWith("bearer")
