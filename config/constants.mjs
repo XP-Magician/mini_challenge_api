@@ -7,7 +7,7 @@ const CONFIG = {
 };
 
 export const TEXT = {
-  INSTRUCTIONS: `instructions :Connect to '/challenge' using your access_token and follow the instructions in the response. Note that the access_token expires in one hour. Include it in the Authorization header in the format 'Bearer {access_token}'. For examples, refer to: https://swagger.io/docs/specification/authentication/bearer-authentication/.`,
+  INSTRUCTIONS: `instructions :Connect to '/challenge' using your access_token and follow the instructions in the response. Note that the access_token expires in one hour. Include it in the Authorization header in the format 'Bearer {access_token}', with a CUSTOM HEADER CALLED: x-authorization.`,
   CHALLENGE: `Welcome to the Foris developer mini-challenge! Follow these steps to complete the task:
 
   1. **Download SQL Dump**
