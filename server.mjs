@@ -2,13 +2,16 @@
 import Express from "express";
 import ViewsRouter from "./routers/ViewsRouter.mjs";
 import ApiRouter from "./routers/ApiRouter.mjs";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 // Constants
 const server = Express();
 const PORT = process.env.PORT ?? 54321;
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Template engine
-server.set("views", "./views");
+server.set("views", `${__dirname}/views`);
 server.set("view engine", "ejs");
 
 // Main server instance config
