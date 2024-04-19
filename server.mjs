@@ -18,7 +18,6 @@ server.set("view engine", "ejs");
 // Main server instance config
 server.use(
   cors({
-    allowedHeaders: ["Content-Type", "Authorization"],
     origin: "*",
   })
 );
