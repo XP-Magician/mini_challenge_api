@@ -6,6 +6,11 @@ import {
   authUser,
   checkAuth,
 } from "../middlewares/MiddleLogin.mjs";
+import {
+  checkAnswerStructure,
+  validateAnswer,
+  rateLimit,
+} from "../middlewares/MiddleAnswer.mjs";
 const router = Express.Router();
 
 // Instructions API
@@ -20,5 +25,15 @@ router.get("/challenge", checkAuth, (req, res) => {
 router.get("/dumps/onlinepsql", checkAuth, (req, res) => {
   return res.send(TEXT.POSTGRESCRIPT);
 });
+
+router.post(
+  "/validate",
+  checkAuth,
+  checkAnswerStructure,
+  validateAnswer,
+  (req, res) => {
+    res.json(req.x_message);
+  }
+);
 
 export default router;
