@@ -1,5 +1,7 @@
+// Dependencies
 import CONSTANTS from "../config/constants.mjs";
 
+// Endpoints
 export const checkAnswerStructure = (req, res, next) => {
   const { number_of_groups, answer } = req.body;
   if (number_of_groups && answer) next();
@@ -8,9 +10,6 @@ export const checkAnswerStructure = (req, res, next) => {
       message: "Missing required fields for answering, check your entries.",
     });
 };
-
-// Make sure the user is not checking multiple times with differents JWT
-export const rateLimit = (req, res, next) => {};
 
 export const validateAnswer = (req, res, next) => {
   //Add +1 to rate storage according to IP

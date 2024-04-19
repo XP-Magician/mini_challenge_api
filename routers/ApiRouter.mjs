@@ -1,5 +1,6 @@
 //Dependencies
 import Express from "express";
+import rateLimit from "express-rate-limit";
 import { TEXT } from "../config/constants.mjs";
 import {
   validateBody,
@@ -9,9 +10,22 @@ import {
 import {
   checkAnswerStructure,
   validateAnswer,
-  rateLimit,
 } from "../middlewares/MiddleAnswer.mjs";
 const router = Express.Router();
+
+// Rate limit for /validate endpoint config
+const limiter = rateLimit({
+  windowMs: 60 * 60 * 1000, //1 hour
+  max: 1, // after sending 1 response user must wait
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  message: {
+    message:
+      "You reached the maximum number of validation requests, try again in one hour.",
+  },
+  skipFailedRequests: true,
+});
+
+router.use("/validate", limiter);
 
 // Instructions API
 router.post("/login", validateBody, authUser, (req, res) => {
