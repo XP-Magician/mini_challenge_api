@@ -18,7 +18,19 @@ server.use("/", ViewsRouter);
 server.use("/", ApiRouter);
 server.disable("x-powered-by");
 
+// Handle 404 , 500 and other bad requests
+server.use((error, request, response) => {
+  if (error.status >= 500) {
+    return request.status(500).json({ error: "Internal server error." });
+  }
+  return request.status(400).json({ error: "Method not allowed." });
+});
+
 // Server init
 server.listen(PORT, () => {
-  console.log(`SERVER LISTENING AT : http://localhost:${PORT}`);
+  console.log(
+    `SERVER LISTENING AT : http://${
+      process.env.PRODUCTION_URI ?? "localhost"
+    }:${PORT}`
+  );
 });
