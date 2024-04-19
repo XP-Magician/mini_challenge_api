@@ -34,12 +34,13 @@ export const authUser = (req, res, next) => {
 };
 
 export const checkAuth = (req, res, next) => {
-  const authorizationHeader = req.get("Authorization");
+  const authorizationHeader = req.headers["authorization"];
   if (
     !authorizationHeader ||
     !authorizationHeader.toLowerCase().startsWith("bearer")
-  )
+  ) {
     return res.status(401).json({ message: "Missing authorization header." });
+  }
   const authorizationToken = authorizationHeader.substring(7);
   try {
     const decodedToken = jwt.verify(
