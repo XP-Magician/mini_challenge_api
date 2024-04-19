@@ -1,16 +1,16 @@
 //Dependencies
 import Express from "express";
 import rateLimit from "express-rate-limit";
-import { TEXT } from "../config/constants.mjs";
+import { TEXT } from path.join('..','config','constants.mjs');
 import {
   validateBody,
   authUser,
   checkAuth,
-} from "../middlewares/MiddleLogin.mjs";
+} from path.join('..','middlewares','MiddleLogin.mjs');
 import {
   checkAnswerStructure,
   validateAnswer,
-} from "../middlewares/MiddleAnswer.mjs";
+} from path.join('..','middlewares','MiddleAnswer.mjs');
 const router = Express.Router();
 
 // Rate limit for /validate endpoint config

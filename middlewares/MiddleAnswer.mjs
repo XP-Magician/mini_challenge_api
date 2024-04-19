@@ -1,5 +1,5 @@
 // Dependencies
-import CONSTANTS from "../config/constants.mjs";
+import CONSTANTS from path.join('..','config','constants.mjs');
 
 // Endpoints
 export const checkAnswerStructure = (req, res, next) => {
