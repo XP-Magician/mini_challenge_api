@@ -34,9 +34,8 @@ export const authUser = (req, res, next) => {
 };
 
 export const checkAuth = (req, res, next) => {
-  const authorizationHeader = req.headers["authorization"];
+  const authorizationHeader = req.headers["x-authorization"];
   console.log({ authorizationHeader });
-  console.log({ ...req.headers });
   if (
     !authorizationHeader ||
     !authorizationHeader.toLowerCase().startsWith("bearer")
