@@ -5,7 +5,7 @@ const router = Express.Router();
 
 // Instructions frontend
 router.get("/", (req, res) => {
-  res.render("index", { CONSTANTS });
+  return res.render("index", { CONSTANTS });
 });
 
 export default router;
